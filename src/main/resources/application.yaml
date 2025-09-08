@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: milvus-rag-test
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o-mini
+      embedding:
+        options:
+          model: text-embedding-3-small
+    vector-store:
+      milvus:
+        client:
+          host: "localhost"
+          port: 19530
+        databaseName: "ma_compta"
+    chat:
+      memory:
+        repository:
+          jdbc:
+            schema: classpath:/h2/schema-h2.sql
