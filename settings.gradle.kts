@@ -1,1 +1,1 @@
-rootProject.name = "milvusragtest"
+rootProject.name = "milvus-rag-test"
