@@ -1,0 +1,57 @@
+{
+  "dbName": "accounting",
+  "collectionName": "my_invoice",
+  "description": "Collection of invoice and their embeddings",
+  "params": {
+    "consistencyLevel": "Strong"
+  },
+  "schema": {
+    "autoId": true,
+    "enabledDynamicField": true,
+    "fields": [
+      {
+        "fieldName": "doc_id",
+        "description": "Identifiant primaire",
+        "dataType": "Int64",
+        "isPrimary": true
+      },
+      {
+        "fieldName": "metadata",
+        "description": "Métadonnées du document",
+        "dataType": "JSON"
+      },
+      {
+        "fieldName": "content",
+        "description": "Texte extrait de la facture",
+        "dataType": "VarChar",
+        "elementTypeParams": {
+          "max_length": 65535
+        }
+      },
+      {
+        "fieldName": "embedding",
+        "description": "Vecteur d'embedding",
+        "dataType": "FloatVector",
+        "elementTypeParams": {
+          "dim": "1536"
+        }
+      }
+    ]
+  },
+  "indexParams": [
+    {
+      "fieldName": "embedding",
+      "metricType": "COSINE",
+      "indexName": "embedding",
+      "indexType": "IVF_FLAT",
+      "params": {
+        "nlist": 1024
+      }
+    },
+    {
+      "fieldName": "doc_id",
+      "indexName": "doc_id",
+      "indexType": "AUTOINDEX"
+    }
+  ]
+}

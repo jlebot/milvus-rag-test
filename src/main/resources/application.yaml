@@ -19,7 +19,7 @@ spring:
         client:
           host: "localhost"
           port: 19530
-        databaseName: "ma_compta"
+        databaseName: "accounting"
     chat:
       memory:
         repository:
