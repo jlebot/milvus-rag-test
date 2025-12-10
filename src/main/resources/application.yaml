@@ -20,6 +20,7 @@ spring:
           host: "localhost"
           port: 19530
         databaseName: "accounting"
+        collectionName: "my_invoice"
     chat:
       memory:
         repository:
